@@ -1,21 +1,27 @@
-# Core development and tooling
+# Shell
+brew "zsh"
+brew "starship"
+
+# Core development tools
 brew "git"
 brew "curl"
 brew "wget"
 brew "python@3.12"
 
-# Container & VM tooling
+# Containers
+# `brew "docker"` is CLI only - needs a daemon (colima or Docker Desktop)
 brew "docker"
+brew "colima"   # Docker daemon - free, lightweight alternative to Docker Desktop
 brew "podman"
 brew "distrobox"
 
 # Editors & terminal
 brew "helix"
-brew "ghostty"
+cask "ghostty"
 brew "hyprspace"
 brew "aider-ai"
 
-# CLI utilities & productivity
+# CLI utilities
 brew "fzf"
 brew "ripgrep"
 brew "fd"
@@ -23,24 +29,21 @@ brew "bat"
 brew "jq"
 brew "yq"
 brew "direnv"
-brew "gh"  # GitHub CLI for Actions workflows
+brew "gh"
 
-# Cyber & detection engineering tools
+# Cyber & detection engineering
 brew "nmap"
 brew "socat"
 brew "mitmproxy"
 
-# Development utilities
-brew "httpie"  # Better curl for APIs
-brew "lazygit"  # Git UI in terminal (optional, useful for quick review)
+# Dev utilities
+brew "httpie"
+brew "lazygit"
 brew "tree"
-brew "tmux"    # Session management if needed
 
-# Taps for additional tools
-tap "homebrew/bundle"
-tap "homebrew/cask"  # If you need GUI apps later
+# Fonts
+cask "font-jetbrains-mono-nerd-font"
 
-# Optional casks (GUI apps - uncomment as needed)
+# Optional - uncomment as needed
 # cask "burp-suite-community"
 # cask "wireshark"
-# cask "visual-studio-code"

@@ -1,35 +1,47 @@
 #!/bin/bash
 set -e
 
-echo "🚀 Bootstrapping dotfiles..."
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+echo "Bootstrapping dotfiles..."
 
 # Install Homebrew if needed
 if ! command -v brew &> /dev/null; then
-    echo "📦 Installing Homebrew..."
+    echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    # Add Homebrew to PATH for this session
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    # Apple Silicon vs Intel path
+    if [[ -f /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
 fi
 
 # Install chezmoi if needed
 if ! command -v chezmoi &> /dev/null; then
-    echo "📦 Installing chezmoi..."
+    echo "Installing chezmoi..."
     brew install chezmoi
 fi
 
-# Initialize/update dotfiles with chezmoi
-echo "📝 Applying dotfiles with chezmoi..."
-chezmoi init --apply "$(pwd)"
+# Apply dotfiles
+echo "Applying dotfiles with chezmoi..."
+chezmoi init --apply "$DOTFILES_DIR"
 
-# Install Brewfile dependencies
-echo "📦 Installing packages from Brewfile..."
-brew bundle install --file="$(pwd)/Brewfile"
+# Install packages
+echo "Installing packages from Brewfile..."
+brew bundle install --file="$DOTFILES_DIR/Brewfile"
 
-echo "✅ Bootstrap complete!"
-echo ""
-echo "Next steps:"
-echo "  - Configure helix: ~/.config/helix/"
-echo "  - Configure ghostty: ~/.config/ghostty/"
-echo "  - Set up hyprspace config"
-echo "  - Configure your shell (zsh) in ~/.zshrc"
+# Install oh-my-zsh if needed
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+    echo "Installing oh-my-zsh..."
+    RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+# Set zsh as default shell if it isn't already
+if [[ "$SHELL" != "$(which zsh)" ]]; then
+    echo "Setting zsh as default shell..."
+    chsh -s "$(which zsh)" "$USER"
+fi
+
+echo "Bootstrap complete. Open a new terminal or run: exec zsh"

@@ -5,7 +5,6 @@
 line-number = "relative"
 mouse = true
 true-color = true
-completion-trigger-len = 1
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]
