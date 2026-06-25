@@ -1,0 +1,36 @@
+# Chezmoi
+.chezmoi_umask
+
+# Local overrides
+.zshrc.local
+.config/*/local
+.config/**/local.conf
+
+# Secrets and credentials
+.ssh/
+.gnupg/
+.aws/
+.kube/config
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+venv/
+.env
+.env.local
+
+# Build artifacts
+dist/
+build/
+*.pyc
+__pycache__/

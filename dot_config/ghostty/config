@@ -1,0 +1,31 @@
+# Ghostty terminal configuration
+# See https://ghostty.org/docs/config
+
+# Font
+font-family = "Hack Nerd Font Mono"
+font-size = 12
+
+# Window
+window-decoration = false
+macos-titlebar-style = "hidden"
+
+# Theme (use your preferred colorscheme)
+# theme = dark
+
+# Shell integration
+shell-integration = true
+shell-integration-features = "cursor,title,sudo"
+
+# Cursor
+cursor-style = "block"
+cursor-style-blink = true
+
+# Scrollback
+scrollback-limit = 10000
+
+# Keybindings
+# You can define custom keybindings here
+# Example: keybind = cmd+shift+enter=new_window
+
+# Performance
+unfocused-split-opacity = 0.8

@@ -1,0 +1,24 @@
+# Helix editor configuration
+# See https://docs.helix-editor.com/configuration.html
+
+[editor]
+line-number = "relative"
+mouse = true
+true-color = true
+completion-trigger-len = 1
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = ["file-modification-indicator", "version-control"]
+right = ["diagnostics", "selections", "position", "file-encoding"]
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+# Theme (adjust based on preference)
+# theme = "dark_plus"
+
+# Keybindings can go in a separate file or be defined here
+# For now, using defaults

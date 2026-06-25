@@ -1,0 +1,15 @@
+[format]
+# Use TOML for config files
+# encoding = "utf-8"
+
+[diff]
+exclude = ["scripts", "Brewfile"]
+
+# Template data for your configs
+[data]
+email = "jttrail0@gmail.com"
+name = "Sonic"
+
+# Detect OS for conditional installs
+[ostype]
+# Automatically populated by chezmoi
