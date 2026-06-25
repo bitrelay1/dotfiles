@@ -19,6 +19,9 @@ eval "$(starship init zsh)"
 
 # Aliases
 alias ll='ls -lah'
+alias cat='bat'
+alias grep='rg'
+alias gh='gh'
 
 # Development
 export EDITOR='hx'

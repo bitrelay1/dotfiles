@@ -18,7 +18,7 @@ brew "distrobox"
 # Editors & terminal
 brew "helix"
 cask "ghostty"
-brew "hyprspace"
+brew "omniwm"  # verify formula name: https://github.com/omniwm/omniwm
 brew "aider-ai"
 
 # CLI utilities
