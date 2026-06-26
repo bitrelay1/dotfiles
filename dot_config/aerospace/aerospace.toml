@@ -3,8 +3,8 @@
 
 [mode.main.binding]
     # Workspace navigation (cycle through workspaces)
-    cmd-u = 'focus-workspace prev'
-    cmd-i = 'focus-workspace next'
+    cmd-u = 'workspace prev'
+    cmd-i = 'workspace next'
 
     # Window focus (directional)
     cmd-h = 'focus left'
@@ -27,11 +27,9 @@
     cmd-m = 'move-node-to-monitor next'
 
     # Layout and sizing
-    cmd-f = 'fullscreen toggle'
-    cmd-t = 'layout-toggle all'
+    cmd-f = 'fullscreen'
+    cmd-t = 'layout h_tiles'
     cmd-e = 'balance-sizes'
-    cmd-minus = 'resize width -50'
-    cmd-equal = 'resize width +50'
 
     # Launch applications
     cmd-enter = 'exec-and-forget open -a Ghostty'
