@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(git init *)",
-      "Bash(brew install *)"
+      "Bash(brew install *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:nikitabobko.github.io)"
     ]
   }
 }
