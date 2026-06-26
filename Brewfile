@@ -1,3 +1,7 @@
+# Taps
+tap "BarutSRB/tap"
+tap "azixxxxx/tap"
+
 # Shell
 brew "zsh"
 brew "starship"
@@ -15,16 +19,11 @@ brew "colima"   # Docker daemon - free, lightweight alternative to Docker Deskto
 brew "podman"
 brew "distrobox"
 
-# Taps
-tap "BarutSRB/tap"
-tap "azixxxxx/tap"
-
 # Editors, terminal, desktop
 brew "helix"
 cask "ghostty"
-brew "omniwm"
+cask "omniwm"
 cask "glance"
-brew "aider-ai"
 
 # CLI utilities
 brew "fzf"
@@ -35,11 +34,12 @@ brew "jq"
 brew "yq"
 brew "direnv"
 brew "gh"
+brew "zellij"
 
 # Cyber & detection engineering
 brew "nmap"
 brew "socat"
-brew "mitmproxy"
+cask "mitmproxy"
 
 # Dev utilities
 brew "httpie"
