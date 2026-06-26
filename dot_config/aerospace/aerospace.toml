@@ -1,3 +1,45 @@
 # AeroSpace configuration
-# Verify config path and format against: https://github.com/nikitabobko/AeroSpace
-# This is a placeholder — fill in once installed and docs reviewed
+# Simple keybinding scheme: Cmd for workspace/app, Cmd+Shift for move, h/j/k/l for directional
+# Verify exact command names against: https://github.com/nikitabobko/AeroSpace/wiki/Commands
+
+[mode.main]
+# Workspace navigation (cycle through workspaces)
+keybind = cmd+u = focus-workspace prev
+keybind = cmd+i = focus-workspace next
+
+# Window focus (directional)
+keybind = cmd+h = focus left
+keybind = cmd+j = focus down
+keybind = cmd+k = focus up
+keybind = cmd+l = focus right
+keybind = cmd+tab = focus-view next
+
+# Move window within workspace (directional)
+keybind = cmd+shift+h = move left
+keybind = cmd+shift+j = move down
+keybind = cmd+shift+k = move up
+keybind = cmd+shift+l = move right
+
+# Move window to different workspace
+keybind = cmd+shift+u = move-node-to-workspace prev
+keybind = cmd+shift+i = move-node-to-workspace next
+
+# Move window to monitor
+keybind = cmd+m = move-node-to-monitor next
+
+# Layout and sizing
+keybind = cmd+f = fullscreen toggle
+keybind = cmd+t = layout-toggle all
+keybind = cmd+e = balance-sizes
+keybind = cmd+minus = resize width -50
+keybind = cmd+equal = resize width +50
+
+# Launch applications
+keybind = cmd+enter = exec-and-forget open -a Ghostty
+# Note: Cmd+Space is reserved by macOS for Spotlight, no need to rebind
+
+# Close window
+keybind = cmd+w = close
+
+# Overview (Mission Control) - may need adjustment
+keybind = cmd+o = exec-and-forget open -a 'Mission Control'
