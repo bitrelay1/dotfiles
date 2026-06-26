@@ -15,10 +15,15 @@ brew "colima"   # Docker daemon - free, lightweight alternative to Docker Deskto
 brew "podman"
 brew "distrobox"
 
-# Editors & terminal
+# Taps
+tap "BarutSRB/tap"
+tap "azixxxxx/tap"
+
+# Editors, terminal, desktop
 brew "helix"
 cask "ghostty"
-brew "omniwm"  # verify formula name: https://github.com/omniwm/omniwm
+brew "omniwm"
+cask "glance"
 brew "aider-ai"
 
 # CLI utilities
