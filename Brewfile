@@ -22,6 +22,7 @@ brew "distrobox"
 # Editors, terminal, desktop
 brew "helix"
 cask "ghostty"
+cask "aerospace"
 cask "glance"
 
 # CLI utilities

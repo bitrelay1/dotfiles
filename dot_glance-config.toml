@@ -1,5 +1,7 @@
 preset = "tokyo-night"
 
+aerospace.path = "/opt/homebrew/bin/aerospace"
+
 [widgets]
 displayed = [
     "default.spaces",
