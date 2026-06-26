@@ -4,7 +4,9 @@
       "Bash(git init *)",
       "Bash(brew install *)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:nikitabobko.github.io)"
+      "WebFetch(domain:nikitabobko.github.io)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
