@@ -22,7 +22,7 @@ brew "distrobox"
 # Editors, terminal, desktop
 brew "helix"
 cask "ghostty"
-cask "aerospace"
+# cask "aerospace"  # TODO: verify installation method (may need tap)
 cask "glance"
 
 # CLI utilities
