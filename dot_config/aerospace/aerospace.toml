@@ -31,7 +31,7 @@ default-root-container-orientation = 'auto'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
-automatically-unhide-macos-hidden-apps = false
+automatically-unhide-macos-hidden-apps = true
 
 # List of workspaces that should stay alive even when they contain no windows,
 # even when they are invisible.
@@ -123,10 +123,13 @@ on-mode-changed = []
     ctrl-9 = 'workspace 9'
     ctrl-0 = 'workspace Z'
 
-    ctrl-left = 'workspace prev'
-    ctrl-semicolon = 'workspace prev'
-    ctrl-right = 'workspace next'
-    ctrl-quote = 'workspace next'
+    # Niri style Left/Right workspace navigation
+    ctrl-h = 'workspace prev'
+    ctrl-l = 'workspace next'
+
+    # Niri style Up/Down to cycle workspaces or create empty workspaces
+    ctrl-k = 'workspace prev'
+    ctrl-j = 'workspace next'
 
     ctrl-shift-semicolon = 'focus-monitor prev'
     ctrl-shift-quote = 'focus-monitor next'

@@ -1,16 +1,3 @@
-font-family = "JetBrainsMono Nerd Font Mono"
-font-size = 12
-
-window-decoration = false
-
-shell-integration = "detect"
-shell-integration-features = "cursor,title"
-
-cursor-style = "block"
-cursor-style-blink = true
-
-scrollback-limit = 10000
-
 # Tokyo Night Storm theme (from VSCode)
 background = #24283b
 foreground = #a9b1d6
@@ -35,6 +22,30 @@ palette = 13=#bb9af7
 palette = 14=#7dcfff
 palette = 15=#a9b1d6
 
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 12.7
+
+window-decoration = true
+macos-titlebar-style = hidden
+
+shell-integration = detect
+shell-integration-features = "cursor,title"
+window-padding-balance= true
+
+cursor-style = "block"
+cursor-style-blink = true
+
+window-padding-x = 5
+window-padding-y = 5
+
+scrollback-limit = 10000
+
+# Sets background opacity (0.0 is invisible, 1.0 is solid)
+background-opacity = 0.87
+
+# Enables native macOS/Linux blur effects behind the transparency
+background-blur = true
+
 # Quick terminal (macOS dropdown terminal)
 keybind = global:cmd+grave_accent=toggle_quick_terminal
-quick-terminal-position = bottom
+quick-terminal-position = top
