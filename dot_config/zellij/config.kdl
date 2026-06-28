@@ -30,14 +30,13 @@ keybinds clear-defaults=true {
         bind "Alt o" { MoveTab "right"; }
 
         // Layout toggles
-        bind "Alt LeftSquareBracket" { PreviousSwapLayout; }
-        bind "Alt RightSquareBracket" { NextSwapLayout; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
 
         // Pane operations
         bind "Alt n" { NewPane; }
         bind "Alt p" { TogglePanePinned; }
-        bind "Alt Shift p" { ToggleActiveTerminalZellij; }
 
         // Utility
         bind "Ctrl q" { Quit; }
@@ -133,11 +132,11 @@ keybinds clear-defaults=true {
         bind "Ctrl c" { SwitchToMode "normal"; }
         bind "Enter" { SwitchToMode "search"; }
     }
-    rename_tab {
+    renametab {
         bind "Ctrl c" { SwitchToMode "normal"; }
         bind "Enter" { SwitchToMode "normal"; }
     }
-    rename_pane {
+    renamepane {
         bind "Ctrl c" { SwitchToMode "normal"; }
         bind "Enter" { SwitchToMode "normal"; }
     }
@@ -156,39 +155,7 @@ keybinds clear-defaults=true {
         bind "c" { NewTab; SwitchToMode "normal"; }
         bind "n" { GoToNextTab; SwitchToMode "normal"; }
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
-        bind "x" { ClosePane; SwitchToMode "normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
-        bind "w" { SwitchToMode "normal"; }
         bind "Ctrl b" { SwitchToMode "normal"; }
-    }
-}
-
-themes {
-    tokyo-night {
-        fg 169 177 214
-        bg 36 40 59
-        red 247 118 142
-        green 115 218 202
-        yellow 224 175 104
-        blue 122 162 247
-        magenta 187 154 247
-        cyan 125 207 255
-        orange 247 118 142
-    }
-}
-
-theme "tokyo-night"
-
-ui {
-    pane_frame {
-        rounded_corners true
-    }
-}
-
-mouse {
-    mode "normal" {
-        left_click {
-            run "SwitchToMode pane"
-        }
     }
 }
