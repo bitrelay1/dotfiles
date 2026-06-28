@@ -23,32 +23,66 @@ This will:
 - `Brewfile` - Package management (Homebrew)
 - `dot_*` - Files that will be symlinked to `$HOME/` (e.g., `dot_zshrc` → `~/.zshrc`)
 - `dot_config/` - Config files for `~/.config/`
-  - `helix/` - Helix editor config
+  - `aerospace/` - AeroSpace window manager config
   - `ghostty/` - Ghostty terminal config
-  - `hyprspace/` - Hyprspace window manager config
-- `scripts/` - Custom scripts and setup routines
+  - `zellij/` - Zellij terminal multiplexer config
+  - `helix/` - Helix editor config
 - `.chezmoi.toml` - Chezmoi configuration
 
 ## Tools Included
 
 ### Core
-- **helix** - Editor
-- **ghostty** - Terminal
-- **hyprspace** - Window manager
-- **aider-ai** - AI-assisted coding
+- **aerospace** - Tiling window manager
+- **ghostty** - Native terminal emulator
+- **zellij** - Terminal multiplexer
+- **helix** - Modal editor
+- **starship** - Shell prompt
+- **oh-my-zsh** - Shell framework
 
 ### Development
-- Python 3.12, Docker, Podman, Distrobox
+- Python 3.12, Git
+- Docker, Colima, Podman, Distrobox
 - GitHub CLI (`gh`)
-- Git utilities
+- Lazygit (Git UI)
 
 ### CLI Utilities
-- fzf, ripgrep, fd, bat, jq, yq
-- httpie (curl alternative)
+- fzf (fuzzy finder), ripgrep, fd
+- bat (cat clone), jq, yq
 - direnv (environment management)
 
 ### Cyber & Detection Engineering
 - nmap, socat, mitmproxy
+
+## Keybindings
+
+### AeroSpace (Window Manager)
+| Key | Action |
+|-----|--------|
+| `Alt+h/j/k/l` | Focus window left/down/up/right |
+| `Alt+Shift+h/j/k/l` | Move window left/down/up/right |
+| `Ctrl+1-9/0` | Jump to workspace 1-9/Z |
+| `Ctrl+h/l` | Previous/next workspace |
+| `Alt+/` | Toggle tiling layout |
+| `Alt+,` | Toggle accordion layout |
+| `Alt+Space` | Fullscreen |
+| `Cmd+Enter` | Launch Ghostty |
+
+### Zellij (Terminal Multiplexer)
+| Key | Action |
+|-----|--------|
+| `Ctrl+Alt+h/j/k/l` | Move pane focus left/down/up/right |
+| `Ctrl+Shift+p` | Enter pane mode |
+| `Ctrl+Shift+t` | Enter tab mode |
+| `Ctrl+Shift+n` | Enter resize mode |
+| `Ctrl+Shift+m` | Enter move mode |
+| `Ctrl+Shift+s` | Enter scroll mode |
+| `Alt+i/o` | Move tab left/right |
+| `Alt+n` | New pane |
+
+### Ghostty (Terminal)
+| Key | Action |
+|-----|--------|
+| `Cmd+grave_accent` | Toggle quick terminal (dropdown) |
 
 ## Usage
 
@@ -71,10 +105,8 @@ This repo supports both macOS (via Homebrew) and Linux (via package managers).
 
 Platform detection is handled via chezmoi templates using `{{ .ostype }}`.
 
-## Next Steps
+## Notes
 
-- [ ] Customize shell config in `dot_zshrc`
-- [ ] Add Helix config in `dot_config/helix/`
-- [ ] Add Ghostty config in `dot_config/ghostty/`
-- [ ] Add Hyprspace config in `dot_config/hyprspace/`
-- [ ] Create container definitions (separate repo or `scripts/containers/`)
+- **Chezmoi Source:** This repo is the source of truth. Configs are applied from here to `~/.config/` and home directory
+- **First Run:** `./install.sh` handles everything; subsequent changes use `chezmoi apply`
+- **Conflict-Free Keybindings:** Designed to avoid conflicts across AeroSpace, Zellij, Ghostty, macOS, and browsers
