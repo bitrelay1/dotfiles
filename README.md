@@ -71,11 +71,11 @@ This will:
 | Key | Action |
 |-----|--------|
 | `Ctrl+Alt+h/j/k/l` | Move pane focus left/down/up/right |
-| `Ctrl+Shift+p` | Enter pane mode |
-| `Ctrl+Shift+t` | Enter tab mode |
-| `Ctrl+Shift+n` | Enter resize mode |
-| `Ctrl+Shift+m` | Enter move mode |
-| `Ctrl+Shift+s` | Enter scroll mode |
+| `Ctrl+Alt+p` | Enter pane mode (exit with same key) |
+| `Ctrl+Alt+t` | Enter tab mode (exit with same key) |
+| `Ctrl+Alt+n` | Enter resize mode (exit with same key) |
+| `Ctrl+Alt+m` | Enter move mode (exit with same key) |
+| `Ctrl+Alt+s` | Enter scroll mode (exit with same key) |
 | `Alt+i/o` | Move tab left/right |
 | `Alt+n` | New pane |
 
