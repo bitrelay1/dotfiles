@@ -61,9 +61,9 @@ on-mode-changed = []
     inner.horizontal = 5
     inner.vertical =   5
     outer.left =       5
+    outer.right =      5
     outer.bottom =     5
     outer.top =        5
-    outer.right =      5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -190,21 +190,10 @@ on-mode-changed = []
     run = ["move-node-to-workspace Z"]
 
 [[on-window-detected]]
-    if.app-id = "com.apple.MobileSMS"
-    run = ["move-node-to-workspace Z"]
+    if.app-id = 'com.azix.glance'
+    run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = "com.gather.GatherV2"
-    run = ["move-node-to-workspace Z"]
+    if.window-title-regex-substring = 'glance'
+    run = 'layout floating'
 
-[[on-window-detected]]
-    if.app-id = "com.tinyspeck.slackmacgap"
-    run = ["move-node-to-workspace Z"]
-
-[[on-window-detected]]
-    if.app-id = "net.shinyfrog.bear"
-    run = ["move-node-to-workspace Z"]
-
-[[on-window-detected]]
-    if.app-id = "com.mimestream.Mimestream"
-    run = ["move-node-to-workspace Z"]
