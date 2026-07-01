@@ -1,33 +1,182 @@
-# Oh My Zsh
+# ============================================================================
+# Oh My Zsh Configuration
+# ============================================================================
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""  # Starship handles the prompt
-plugins=(git)
+
+# All plugins - built-in and external sourced below
+plugins=(
+  git
+  docker
+  python
+  direnv
+  vi-mode
+  colored-man-pages
+  you-should-use
+  extract
+  osx
+  fzf-tab
+  command-not-found
+  aws
+  gcloud
+  azure
+  history
+)
+
 source "$ZSH/oh-my-zsh.sh"
 
-# History
-setopt HIST_IGNORE_ALL_DUPS
-setopt SHARE_HISTORY
+# ============================================================================
+# VI Mode Configuration
+# ============================================================================
+# Use VI keybindings
+bindkey -v
 
-# FZF
+# Reduce ESC delay to 10ms (faster mode switching)
+export KEYTIMEOUT=1
+
+# VI mode indicators
+export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+export VI_MODE_SET_CURSOR=true
+
+# Additional VI keybindings
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M viins 'jk' vi-cmd-mode  # jk to enter normal mode
+
+# ============================================================================
+# External Plugins - zsh-autosuggestions & zsh-syntax-highlighting
+# ============================================================================
+# Install if not present:
+# brew install zsh-autosuggestions zsh-syntax-highlighting
+
+# zsh-autosuggestions
+if [[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  # Use history-based suggestions
+  export ZSH_AUTOSUGGEST_HISTORY_IGNORE="(rm|sudo)*"
+  # Accept suggestions with Ctrl+Space (vi-friendly)
+  bindkey '^ ' autosuggest-accept
+fi
+
+# zsh-syntax-highlighting (must be sourced last)
+if [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# ============================================================================
+# History Configuration
+# ============================================================================
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+
+# ============================================================================
+# Completion Configuration (zstyle best practices)
+# ============================================================================
+# Enable completion menu with arrow keys
+zstyle ':completion:*' menu select
+
+# Color completion output
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# Matcher: case-insensitive, then case-sensitive
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
+# Group completions by category
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%B%d%b'
+
+# Verbose completions
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format "No matches for: %d"
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+
+# Faster completion for large directories
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.cache/zsh
+
+# Kill process completion
+zstyle ':completion:*:*:kill:*' command 'ps aux'
+zstyle ':completion:*:kill:*' sort false
+
+# Git completions
+zstyle ':completion:*:*:git:*' script ~/.oh-my-zsh/plugins/git/git-completion.bash
+
+# ============================================================================
+# FZF Configuration
+# ============================================================================
 source <(fzf --zsh)
 
+# FZF color scheme for terminal compatibility
+export FZF_DEFAULT_OPTS='--color=fg:#c0caf5,bg:#1a1b26,hl:#7aa2f7 --color=fg+:#c0caf5,bg+:#292e42,hl+:#7aa2f7 --color=info:#7aa2f7,prompt:#bb9af7,pointer:#7aa2f7 --color=marker:#9ece6a,spinner:#bb9af7,header:#c0caf5'
+
+# Use ripgrep for better performance
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# fzf-tab: completion with fzf preview
+zstyle ':fzf-tab:*' fzf-flags --height 50%
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
+# ============================================================================
 # direnv
+# ============================================================================
 eval "$(direnv hook zsh)"
 
-# Starship prompt
+# ============================================================================
+# Starship Prompt
+# ============================================================================
 eval "$(starship init zsh)"
 
-# Aliases
-alias ll='ls -lah'
+# ============================================================================
+# Aliases - ls/cat/grep
+# ============================================================================
+# eza (modern ls) - best practices: git status, icons, colors, groups
+alias ls='eza --color=always --group-directories-first'
+alias ll='eza --long --all --group-directories-first --git'
+alias llt='eza --tree --group-directories-first --git'
+alias llg='eza --long --all --group-directories-first --git --git-ignore'
+
+# Other utilities
 alias cat='bat'
 alias grep='rg'
-alias gh='gh'
 
-# Development
+# ============================================================================
+# Development Tools
+# ============================================================================
 export EDITOR='hx'
 
-# Local PATH
+# ============================================================================
+# Jujutsu (jj) Configuration and Aliases
+# ============================================================================
+# Configure jj to use Helix as editor
+if command -v jj &> /dev/null; then
+  # Set editor for jj
+  jj config set --user ui.editor "hx" 2>/dev/null || true
+
+  # jj aliases for common operations
+  alias jj-st='jj status'
+  alias jj-log='jj log -r main.. -n 10'  # Recent commits
+  alias jj-diff='jj diff'
+  alias jj-sync='jj bookmark list'
+  alias jj-new='jj new'
+  alias jj-squash='jj squash'
+
+  # Enable colors in jj output
+  export JJ_USE_COLORS=true
+fi
+
+# ============================================================================
+# PATH Configuration
+# ============================================================================
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 
-# Machine-local overrides (not tracked in git)
+# ============================================================================
+# Local Machine Overrides
+# ============================================================================
+# Machine-local configuration not tracked in git
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

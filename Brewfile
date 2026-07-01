@@ -37,6 +37,8 @@ brew "yq"
 brew "direnv"
 brew "gh"
 brew "zellij"
+brew "eza"			# Modern ls replacement with git integration
+brew "jj"			# Jujutsu VCS - powerful git alternative
 
 # Cyber & detection engineering
 brew "nmap"
