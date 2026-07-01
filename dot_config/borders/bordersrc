@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# JankyBorders configuration - visual borders for focused windows
+# Pairs with AeroSpace for clear window focus indication
+
+options=(
+	style=round
+	width=6.0
+	hidpi=off
+	active_color=0xffe2e2e3		# Light gray for focused window
+	inactive_color=0xff414550	# Dark gray for unfocused windows
+)
+
+borders "${options[@]}"
