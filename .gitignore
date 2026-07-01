@@ -1,6 +1,9 @@
 # Chezmoi
 .chezmoi_umask
 
+# Claude Code settings (local machine specific)
+.claude/
+
 # Local overrides
 .zshrc.local
 .config/*/local
