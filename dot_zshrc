@@ -4,7 +4,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""  # Starship handles the prompt
 
-# All plugins - built-in and external sourced below
+# Oh-my-zsh built-in plugins
 plugins=(
   git
   docker
@@ -12,16 +12,17 @@ plugins=(
   direnv
   vi-mode
   colored-man-pages
-  you-should-use
   extract
-  osx
-  fzf-tab
   command-not-found
   aws
   gcloud
   azure
   history
 )
+
+# External plugins installed separately:
+# - zsh-autosuggestions (sourced below)
+# - zsh-syntax-highlighting (sourced below)
 
 source "$ZSH/oh-my-zsh.sh"
 
