@@ -11,6 +11,7 @@ plugins=(
   python
   direnv
   vi-mode
+  history-substring-search
   macos
   colored-man-pages
   extract
@@ -18,7 +19,6 @@ plugins=(
   aws
   gcloud
   azure
-  history
   fzf-tab
   zsh-you-should-use
 )
@@ -32,7 +32,7 @@ plugins=(
 source "$ZSH/oh-my-zsh.sh"
 
 # ============================================================================
-# VI Mode Configuration
+# VI Mode Configuration (after oh-my-zsh plugins loaded)
 # ============================================================================
 # Use VI keybindings
 bindkey -v
@@ -44,7 +44,7 @@ export KEYTIMEOUT=1
 export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 export VI_MODE_SET_CURSOR=true
 
-# Additional VI keybindings
+# Additional VI keybindings (history-substring-search now available from plugin)
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 bindkey -M viins 'jk' vi-cmd-mode  # jk to enter normal mode
