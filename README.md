@@ -55,34 +55,109 @@ This will:
 
 ## Keybindings
 
+Organized by modifier namespace for ergonomic consistency.
+
 ### AeroSpace (Window Manager)
+**Modifier:** `Alt` (right hand) + `Ctrl` (workspace navigation)
+
+#### Window Focus & Movement
 | Key | Action |
 |-----|--------|
 | `Alt+h/j/k/l` | Focus window left/down/up/right |
 | `Alt+Shift+h/j/k/l` | Move window left/down/up/right |
+| `Alt+q/e` | Focus monitor left/right |
+
+#### Workspace Navigation
+| Key | Action |
+|-----|--------|
 | `Ctrl+1-9/0` | Jump to workspace 1-9/Z |
 | `Ctrl+h/l` | Previous/next workspace |
-| `Alt+/` | Toggle tiling layout |
+
+#### Layout & Display
+| Key | Action |
+|-----|--------|
+| `Alt+/` | Cycle layouts (tiling → horizontal → vertical) |
 | `Alt+,` | Toggle accordion layout |
 | `Alt+Space` | Fullscreen |
-| `Cmd+Enter` | Launch Ghostty |
+| `Alt+Tab` | Workspace back-and-forth |
+
+#### Service Mode (Complex Operations)
+| Key | Action |
+|-----|--------|
+| `Alt+Shift+;` | Enter service mode |
+| `Alt+Shift+h/j/k/l` (in service) | Join/stack with left/down/up/right |
+| `r` (in service) | Reset/flatten layout |
+| `f` (in service) | Toggle floating ↔ tiling |
+
+#### Application Launch
+| Key | Action |
+|-----|--------|
+| `Cmd+Enter` | Launch Ghostty terminal |
+
+---
 
 ### Zellij (Terminal Multiplexer)
+**Modifier:** `Ctrl+Alt` (consistent single namespace for all operations)
+
+#### Pane Navigation & Focus
 | Key | Action |
 |-----|--------|
 | `Ctrl+Alt+h/j/k/l` | Move pane focus left/down/up/right |
-| `Ctrl+Alt+p` | Enter pane mode (exit with same key) |
-| `Ctrl+Alt+t` | Enter tab mode (exit with same key) |
-| `Ctrl+Alt+n` | Enter resize mode (exit with same key) |
-| `Ctrl+Alt+m` | Enter move mode (exit with same key) |
-| `Ctrl+Alt+s` | Enter scroll mode (exit with same key) |
-| `Alt+i/o` | Move tab left/right |
-| `Alt+n` | New pane |
 
-### Ghostty (Terminal)
+#### Mode Entry (Exit: `Enter` or `Esc`)
+| Key | Action |
+|-----|--------|
+| `Ctrl+Alt+p` | Pane mode (create, move, rename panes) |
+| `Ctrl+Alt+t` | Tab mode (manage tabs) |
+| `Ctrl+Alt+n` | Resize mode (adjust pane sizes) |
+| `Ctrl+Alt+m` | Move mode (move panes around) |
+| `Ctrl+Alt+s` | Scroll mode (scroll & search scrollback) |
+
+#### Special Modes
+| Key | Action |
+|-----|--------|
+| `Ctrl+Alt+b` | Tmux mode |
+| `Ctrl+Alt+z` | Session mode |
+
+#### Tab Operations
+| Key | Action |
+|-----|--------|
+| `Ctrl+Alt+i/o` | Move tab left/right |
+
+#### Layout Operations
+| Key | Action |
+|-----|--------|
+| `Ctrl+Alt+[/]` | Previous/next swap layout |
+| `Ctrl+Alt+f` | Toggle floating panes |
+
+#### Pane Operations
+| Key | Action |
+|-----|--------|
+| `Ctrl+Alt+d` | New pane |
+| `Ctrl+Alt+w` | Toggle pane pin |
+
+#### Quit
+| Key | Action |
+|-----|--------|
+| `Ctrl+Alt+q` | Quit Zellij |
+
+---
+
+### Ghostty (Terminal Emulator)
+**Modifier:** `Cmd` (system-level, global)
+
 | Key | Action |
 |-----|--------|
 | `Cmd+grave_accent` | Toggle quick terminal (dropdown) |
+
+---
+
+### Helix (Editor)
+**Layouts** (`helix -c <layout-name>`):
+- `infra` — Infrastructure/container work (minimal editor, space for tools)
+- `dev` — Development (editor + file explorer + test terminal)
+- `ai-chat` — AI collaboration (editor context + agent panes)
+- `debug` — Logging/monitoring (minimal editor, large log area)
 
 ## Usage
 
