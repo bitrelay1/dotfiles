@@ -26,9 +26,11 @@ keybinds clear-defaults=true {
         bind "Ctrl Alt b" { SwitchToMode "tmux"; }
         bind "Ctrl Alt z" { SwitchToMode "session"; }
 
-        // Tab operations: Ctrl+Alt+io
-        bind "Ctrl Alt i" { MoveTab "left"; }
-        bind "Ctrl Alt o" { MoveTab "right"; }
+        // Tab operations: cycle with i/o, move with u/y
+        bind "Ctrl Alt i" { GoToPreviousTab; }       // Cycle to previous tab
+        bind "Ctrl Alt o" { GoToNextTab; }           // Cycle to next tab
+        bind "Ctrl Alt u" { MoveTab "left"; }        // Move tab left
+        bind "Ctrl Alt y" { MoveTab "right"; }       // Move tab right
 
         // Layout operations: Ctrl+Alt+[] and f
         bind "Ctrl Alt [" { PreviousSwapLayout; }
