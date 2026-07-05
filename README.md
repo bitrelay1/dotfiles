@@ -122,7 +122,8 @@ Organized by modifier namespace for ergonomic consistency.
 #### Tab Operations
 | Key | Action |
 |-----|--------|
-| `Ctrl+Alt+i/o` | Move tab left/right |
+| `Ctrl+Alt+i/o` | Cycle to previous/next tab (quick navigation) |
+| `Ctrl+Alt+u/y` | Move tab left/right (rearrange) |
 
 #### Layout Operations
 | Key | Action |
