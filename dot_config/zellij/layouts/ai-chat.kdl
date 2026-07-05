@@ -1,0 +1,20 @@
+// AI + Chat workspace layout
+// Helix editor (code context) + Agent/REPL terminal panes
+
+layout {
+    pane size=1 {
+        pane size=40 {
+            // Main editor pane - will run 'hx'
+            // Provides context for AI/agents
+        }
+        pane size=60 stacked=true {
+            pane {
+                // Agent/agentic loop terminal
+                // For running Claude Code CLI, agents, REPL
+            }
+            pane {
+                // Supporting terminal (context/debugging)
+            }
+        }
+    }
+}

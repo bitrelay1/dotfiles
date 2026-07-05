@@ -1,0 +1,21 @@
+// Infrastructure/Container workspace layout
+// Helix editor + panes for Docker, Kubernetes, Terraform, system tools
+
+layout {
+    pane size=1 {
+        pane {
+            // Main editor pane - will run 'hx'
+        }
+        pane size=40 stacked=true {
+            pane {
+                // Docker/container operations terminal
+            }
+            pane {
+                // Kubernetes/orchestration terminal
+            }
+            pane {
+                // Terraform/infrastructure terminal
+            }
+        }
+    }
+}

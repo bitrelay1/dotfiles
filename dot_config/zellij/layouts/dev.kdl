@@ -1,0 +1,18 @@
+// Development workspace layout
+// Helix editor + file exploration + test/debug terminal
+
+layout {
+    pane size=1 {
+        pane size=70 {
+            // Main editor pane - will run 'hx'
+        }
+        pane size=30 stacked=true {
+            pane {
+                // File browser/quick navigation
+            }
+            pane {
+                // Tests/debug terminal
+            }
+        }
+    }
+}

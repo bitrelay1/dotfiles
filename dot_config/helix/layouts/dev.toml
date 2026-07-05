@@ -1,0 +1,18 @@
+# Development workspace layout
+# Editor + file explorer + debug/test terminal
+# For Python, scripting, active development with testing
+
+[[group]]
+name = "main"
+focus = true
+
+[[group.panes]]
+name = "editor"
+
+[[group.panes]]
+name = "explorer"
+width = "30%"
+
+[[group.panes]]
+name = "picker"
+height = "40%"

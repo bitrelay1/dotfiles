@@ -1,0 +1,15 @@
+# Logging/Debug workspace layout
+# Minimal editor, large terminal area for logs, system monitoring, errors
+# For troubleshooting, log analysis, monitoring
+
+[[group]]
+name = "main"
+focus = true
+
+[[group.panes]]
+name = "editor"
+height = "30%"
+
+[[group.panes]]
+name = "picker"
+height = "70%"

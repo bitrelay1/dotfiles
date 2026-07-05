@@ -1,0 +1,14 @@
+# Infrastructure/Container workspace layout
+# Minimal Helix panes, maximizes space for terminal tools (docker, kubectl, terraform)
+# Use with: Zellij infra layout for panes running containers/orchestration
+
+[[group]]
+name = "main"
+focus = true
+
+[[group.panes]]
+name = "editor"
+
+[[group.panes]]
+name = "picker"
+height = "50%"

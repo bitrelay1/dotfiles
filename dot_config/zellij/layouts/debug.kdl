@@ -1,0 +1,21 @@
+// Logging/Debug workspace layout
+// Minimal editor + large terminal area for logs and monitoring
+
+layout {
+    pane size=1 {
+        pane size=30 {
+            // Editor pane - for context/quick edits
+        }
+        pane size=70 stacked=true {
+            pane {
+                // System logs/monitoring
+            }
+            pane {
+                // Application logs
+            }
+            pane {
+                // Error tracking/debugging
+            }
+        }
+    }
+}

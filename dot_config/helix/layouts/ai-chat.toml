@@ -1,0 +1,15 @@
+# AI + Chat workspace layout
+# Editor for code context + large space for terminal (running agentic loops)
+# Use with: Zellij ai-chat layout for agent/REPL panes
+
+[[group]]
+name = "main"
+focus = true
+
+[[group.panes]]
+name = "editor"
+width = "40%"
+
+[[group.panes]]
+name = "picker"
+height = "50%"
