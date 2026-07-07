@@ -19,6 +19,8 @@ plugins=(
   aws
   gcloud
   azure
+  ansible
+  terraform
   fzf-tab
   zsh-you-should-use
 )

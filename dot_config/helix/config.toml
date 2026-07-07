@@ -5,6 +5,9 @@
 line-number = "relative"
 mouse = true
 true-color = true
+cursorline = true
+color-modes = true
+bufferline = "always"
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]
@@ -16,8 +19,18 @@ normal = "block"
 insert = "bar"
 select = "underline"
 
+[editor.soft-wrap]
+enable = true
+
+[editor.lsp]
+enable = true
+display-messages = true
+auto-signature-help = true
+display-signature-help-docs = true
+
 # Theme (adjust based on preference)
 # theme = "dark_plus"
 
-# Keybindings can go in a separate file or be defined here
-# For now, using defaults
+[keys.normal]
+S-l = ":buffer-next"
+S-h = ":buffer-previous"
