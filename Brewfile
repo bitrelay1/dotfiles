@@ -1,6 +1,4 @@
 # Taps
-tap "BarutSRB/tap"
-tap "azixxxxx/tap"
 tap "FelixKratz/formulae"
 
 # Shell
@@ -24,7 +22,6 @@ brew "distrobox"
 brew "helix"
 cask "ghostty"
 # cask "aerospace"  # TODO: verify installation method (may need tap)
-cask "glance"
 brew "borders"  # JankyBorders - adds visual borders to focused windows
 
 # CLI utilities
