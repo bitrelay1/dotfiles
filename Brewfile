@@ -21,8 +21,8 @@ brew "distrobox"
 # Editors, terminal, desktop
 brew "helix"
 cask "ghostty"
-# cask "aerospace"  # TODO: verify installation method (may need tap)
-brew "borders"  # JankyBorders - adds visual borders to focused windows
+cask "nikitabobko/tap/aerospace", args: { "with-trusted" => true }
+cask "borders", args: { "with-trusted" => true }
 
 # CLI utilities
 brew "fzf"
@@ -40,7 +40,6 @@ brew "jj"			# Jujutsu VCS - powerful git alternative
 # Cyber & detection engineering
 brew "nmap"
 brew "socat"
-cask "mitmproxy"
 
 # Dev utilities
 brew "httpie"
