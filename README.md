@@ -7,7 +7,7 @@ Dotfiles management using [chezmoi](https://www.chezmoi.io/) for bootstrapping a
 On a fresh machine:
 
 ```bash
-git clone https://github.com/<your-user>/dotfiles ~/projects/dotfiles
+git clone https://github.com/bitrelay1/dotfiles ~/projects/dotfiles
 cd ~/projects/dotfiles
 ./install.sh
 ```
