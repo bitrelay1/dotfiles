@@ -6,7 +6,8 @@ after-startup-command = [
   'exec-and-forget borders active_color=0xffe2e2e3 inactive_color=0xff414550 width=6.0 style=round hidpi=off'
 ]
 
-start-at-login = true
+# Disabled while trying OmniWM (see README). Flip back to true to restore.
+start-at-login = false
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true

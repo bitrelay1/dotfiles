@@ -23,7 +23,8 @@ This will:
 - `Brewfile` - Package management (Homebrew)
 - `dot_*` - Files that will be symlinked to `$HOME/` (e.g., `dot_zshrc` → `~/.zshrc`)
 - `dot_config/` - Config files for `~/.config/`
-  - `aerospace/` - AeroSpace window manager config
+  - `omniwm/` - OmniWM window manager config (active)
+  - `aerospace/` - AeroSpace window manager config (paused)
   - `ghostty/` - Ghostty terminal config
   - `zellij/` - Zellij terminal multiplexer config
   - `helix/` - Helix editor config
@@ -32,7 +33,7 @@ This will:
 ## Tools Included
 
 ### Core
-- **aerospace** - Tiling window manager
+- **omniwm** - Niri-style scrolling window manager (trial; AeroSpace paused)
 - **ghostty** - Native terminal emulator
 - **zellij** - Terminal multiplexer
 - **helix** - Modal editor
@@ -57,7 +58,28 @@ This will:
 
 Organized by modifier namespace for ergonomic consistency.
 
-### AeroSpace (Window Manager)
+### OmniWM (Window Manager)
+Trialing [OmniWM](https://omniwm.app) in place of AeroSpace. Uses the Niri scrolling
+layout and OmniWM's default keys (`Option` + arrows); see the
+[shortcut list](https://omniwm.app/guides/keyboard-shortcuts/).
+
+Config lives at `~/.config/omniwm/settings.toml`. The schema is strict (every section
+and hotkey must be present), so let OmniWM generate it, edit values in place, then
+`chezmoi add ~/.config/omniwm/settings.toml`. GUI changes write back to the same file.
+
+Setup:
+1. Mission Control → enable "Displays have separate Spaces", then log out.
+   OmniWM pauses tiling while this is off (AeroSpace prefers it off).
+2. Launch OmniWM, grant Accessibility + Input Monitoring.
+3. Settings → General → Startup → Start at Login.
+
+Switch back to AeroSpace:
+1. Quit OmniWM and turn off its Start at Login.
+2. Set `start-at-login = true` in `aerospace.toml`, launch AeroSpace.
+3. `launchctl enable gui/$(id -u)/com.acsandmann.swipe` (trackpad swipe agent).
+4. Optionally disable "Displays have separate Spaces" again and log out.
+
+### AeroSpace (Window Manager, paused)
 **Modifier:** `Alt` (right hand) + `Ctrl` (workspace navigation)
 
 #### Window Focus & Movement
@@ -185,4 +207,4 @@ Platform detection is handled via chezmoi templates using `{{ .ostype }}`.
 
 - **Chezmoi Source:** This repo is the source of truth. Configs are applied from here to `~/.config/` and home directory
 - **First Run:** `./install.sh` handles everything; subsequent changes use `chezmoi apply`
-- **Conflict-Free Keybindings:** Designed to avoid conflicts across AeroSpace, Zellij, Ghostty, macOS, and browsers
+- **Conflict-Free Keybindings:** Designed to avoid conflicts across OmniWM/AeroSpace, Zellij, Ghostty, macOS, and browsers

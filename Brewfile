@@ -21,8 +21,10 @@ brew "distrobox"
 # Editors, terminal, desktop
 brew "helix"
 cask "ghostty"
-cask "nikitabobko/tap/aerospace", args: { "with-trusted" => true }
-cask "borders", args: { "with-trusted" => true }
+cask "omniwm"   # Niri-style scrolling WM, includes its own focus borders
+# Paused while trying OmniWM - configs kept in dot_config/aerospace + borders
+# cask "nikitabobko/tap/aerospace", args: { "with-trusted" => true }
+# cask "borders", args: { "with-trusted" => true }
 
 # CLI utilities
 brew "fzf"
