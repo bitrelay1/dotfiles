@@ -72,6 +72,24 @@ Setup:
    OmniWM pauses tiling while this is off (AeroSpace prefers it off).
 2. Launch OmniWM, grant Accessibility + Input Monitoring.
 3. Settings → General → Startup → Start at Login.
+4. Free the trackpad gestures OmniWM uses (macOS keeps 4-finger left/right):
+   ```bash
+   for d in com.apple.AppleMultitouchTrackpad com.apple.driver.AppleBluetoothMultitouch.trackpad; do
+     defaults write $d TrackpadThreeFingerHorizSwipeGesture -int 0
+     defaults write $d TrackpadThreeFingerVertSwipeGesture -int 0
+     defaults write $d TrackpadFourFingerVertSwipeGesture -int 0
+   done
+   defaults write com.apple.dock showMissionControlGestureEnabled -bool false
+   defaults write com.apple.dock showAppExposeGestureEnabled -bool false
+   killall Dock
+   ```
+
+Trackpad (Niri-style):
+| Gesture | Action |
+|---|---|
+| 3-finger left/right | Scroll columns in the workspace |
+| 3-finger up/down | Switch workspace |
+| 4-finger swipe up | Overview (also `Option+Shift+O`) |
 
 Switch back to AeroSpace:
 1. Quit OmniWM and turn off its Start at Login.
