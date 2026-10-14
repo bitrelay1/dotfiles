@@ -1,6 +1,8 @@
 preset = "tokyo-night"
 
-aerospace.path = "/opt/homebrew/bin/aerospace"
+# OmniWM is a fork of AeroSpace — try the aerospace path first.
+# If spaces widget doesn't show workspaces, check `which omniwm` and update this path.
+aerospace.path = "/opt/homebrew/bin/omniwm"
 
 [widgets]
 displayed = [

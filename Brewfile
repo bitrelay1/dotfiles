@@ -1,5 +1,5 @@
 # Taps
-tap "FelixKratz/formulae"
+tap "FelixKratz/formulae" if OS.mac?
 
 # Shell
 brew "zsh"
@@ -16,12 +16,14 @@ brew "python@3.12"
 brew "docker"
 brew "colima"   # Docker daemon - free, lightweight alternative to Docker Desktop
 brew "podman"
-brew "distrobox"
+brew "distrobox" if OS.linux?
 
 # Editors, terminal, desktop
 brew "helix"
-cask "ghostty"
-cask "omniwm"   # Niri-style scrolling WM, includes its own focus borders
+if OS.mac?
+  cask "ghostty"
+  cask "omniwm"   # Niri-style scrolling WM, includes its own focus borders
+end
 # Paused while trying OmniWM - configs kept in dot_config/aerospace + borders
 # cask "nikitabobko/tap/aerospace", args: { "with-trusted" => true }
 # cask "borders", args: { "with-trusted" => true }
@@ -49,7 +51,7 @@ brew "lazygit"
 brew "tree"
 
 # Fonts
-cask "font-jetbrains-mono-nerd-font"
+cask "font-jetbrains-mono-nerd-font" if OS.mac?
 
 # Optional - uncomment as needed
 # cask "burp-suite-community"
